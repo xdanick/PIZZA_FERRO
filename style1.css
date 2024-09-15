@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+    body{
+        margin: 0; 
+        font-family: monospace;
+    }
+    header{
+        position: absolute;
+        width: 100%;
+        z-index: 100;
+        border-bottom: 1px solid #fff4;
+    }
+    header ul{
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        list-style: none;
+    }
+    header li, a{
+        padding: 30px 40px;
+        color: #fff;
+        text-decoration: none;
+    }
+    header li.active, header li:hover{
+        border-bottom: 2px solid #fff;
+    }
+
+    .slider {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background-image: linear-gradient(to right, #2B2F3A, #0D0E12);
+        overflow: hidden;
+    }
+    
+    .slider::before {
+        position: absolute;
+        width: 50%;
+        height: 100vh;
+        content: '';
+        top: 0;
+        left: 0;
+        background-image: url('https://foodbay.com/wiki/wp-content/uploads/2020/08/f6fcb80111-2.jpg'); /* Здесь замените на путь к вашему изображению */
+        background-size: cover; /* Изображение будет адаптироваться под размер блока */
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: brightness(50%);
+    }
+    
+    .title {
+        position: absolute;
+        top: 10%;
+        right: 60%;
+        text-align: right;
+        color: #fff;
+        font-size: 150px;
+        width: 40%;
+        font-family: 'Pacifico', cursive;
+        text-shadow: 3px 5px 0px #478860;
+        line-height: .9em;
+        transform: rotate(-5deg);
+    }
+    
+    .icons {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 30px;
+        margin-left: 60%; /* Сдвигаем иконки вправо, чтобы они не пересекались с изображением */
+    }
+    
+    .icon {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        position: relative;
+        transition: transform 0.6s ease-in-out;
+    }
+    
+    .icon i {
+        font-size: 50px;
+        color: #E88735;
+        transition: transform 0.6s ease-in-out;
+        margin-right: 20px;
+    }
+    
+    .icon:hover i {
+        transform: scale(1.2);
+    }
+    
+    .icon p {
+        font-size: 20px;
+        color: #E88735;
+        margin-right: 20px;
+    }
+    
+    .icon .number {
+        font-size: 30px;
+        color: #fff;
+        margin-left: 40px;
+    }
+    
+    .icon:hover {
+        transform: translateY(-10px);
+    }
+    
+    .mascot {
+        position: fixed;
+        bottom: -400px; /* Маскот начнет снаружи экрана */
+        left: 5px ;
+        width: 150px;
+        height:400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        color: white;
+        padding: 10px;
+        border-radius: 10px;
+        transition: bottom 1s ease-in-out; /* Плавное появление */
+        z-index: 13;
+    }
+    
+    .mascot img {
+        width: 250px;
+        margin-bottom: 10px;
+    }
+    .mascot.show {
+        bottom: 20px; /* После появления маскот сдвигается вверх на видимую область */
+    }
+
+    .hidden {
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        
+    }
+    .visible {
+        opacity: 1;
+    }
+
+    .fox {
+        z-index: 20;
+        color: rgb(255, 255, 255);
+        font-size: 30px;
+        margin-top: 10px; /* Расстояние между маскотом и текстом */
+        font-family: 'Pacifico', cursive;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 2px solid; /* Курсор печати */
+        width: fit-content;
+        position: absolute;
+        font-family: monospace;
+        top: 45%;
+        left: 200px;
+        backdrop-filter: blur(30px);
+        padding: 5px;
+    
+    }
+    
+    @keyframes blink-caret {
+        from, to { border-color: transparent; }
+        50% { border-color: rgb(255, 255, 255); }
+    }
+    
+    .fox, .fox1{
+        animation: blink-caret 0.75s step-end infinite; /* Анимация мигания курсора */
+    }
+
+
+    .fox1 {
+        z-index: 20;
+        color: rgb(255, 255, 255);
+        font-size: 30px;
+        margin-top: 10px; /* Расстояние между маскотом и текстом */
+        font-family: 'Pacifico', cursive;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 2px solid; /* Курсор печати */
+        width: fit-content;
+        position: absolute;
+        font-family: monospace;
+        top: 55%;
+        left: 200px;
+        backdrop-filter: blur(30px);
+        padding: 5px;
+    
+    }
+
+
+
+
+

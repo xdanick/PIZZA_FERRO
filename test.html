@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Открытие меню</title>
+    <style>
+       body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#menuButton {
+    display: block;
+    margin: 50px auto;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menuContent {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    transform: translateY(100%); /* Начальное положение за пределами экрана */
+    transition: transform 0.5s;
+    width: 90%; /* Почти вся ширина экрана */
+    max-width: 400px; /* Ограничиваем ширину */
+}
+
+.overlay.show .menuContent {
+    transform: translateY(0); /* Поднимаем меню на место */
+}
+
+.closeButton {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <button id="menuButton">Открыть меню</button>
+
+    <div id="menuOverlay" class="overlay">
+        <div class="menuContent">
+            <span class="closeButton">&times;</span>
+            <h2>Меню</h2>
+            <ul>
+                <li>Пицца Маргарита - 500 руб.</li>
+                <li>Пицца Пепперони - 600 руб.</li>
+                <li>Пицца Четыре сыра - 700 руб.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("menuButton").onclick = function() {
+    document.getElementById("menuOverlay").classList.add("show");
+};
+
+document.querySelector(".closeButton").onclick = function() {
+    document.getElementById("menuOverlay").classList.remove("show");
+};
+
+window.onclick = function(event) {
+    if (event.target == document.getElementById("menuOverlay")) {
+        document.getElementById("menuOverlay").classList.remove("show");
+    }
+};
+
+    </script>
+</body>
+</html>

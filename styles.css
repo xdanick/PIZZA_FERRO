@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+body {
+    margin: 0; 
+    font-family: monospace;
+}
+
+header {
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+    border-bottom: 1px solid #fff4;
+}
+
+header ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    list-style: none;
+}
+
+header li, a {
+    padding: 30px 40px;
+    color: #fff;
+    text-decoration: none;
+}
+
+header li.active, header li:hover {
+    border-bottom: 2px solid #fff;
+}
+
+.menu {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(to right, #2B2F3A, #0D0E12);
+    overflow: hidden;
+}
+
+.menu::before {
+    position: absolute;
+    width: 50%;
+    height: 100vh;
+    content: '';
+    top: 0;
+    left: 0;
+    background-color: #E88735;
+    z-index: 1;
+}
+
+.title {
+    position: absolute;
+    top: 20%;
+    right: 60%;
+    text-align: right;
+    color: #fff;
+    font-size: 150px;
+    width: 40%;
+    font-family: 'Pacifico', cursive;
+    text-shadow: 3px 5px 0px #478860;
+    line-height: .9em;
+    transform: rotate(-5deg);
+    z-index: 2;
+}
+
+.icons {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0px 0px 30px rgba(10, 10, 13, 0.37);
+    border-radius: 5px;
+    padding: 10px 10px 10px;
+    z-index: 3;
+    width: 1200px;
+    height: 100px;
+    justify-content: space-around;
+}
+
+.icon {
+    font-size: 50px;
+    margin: 0 15px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    color: white;
+}
+
+.icon:hover {
+    transform: scale(1.2);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s, visibility 0.5s;
+    z-index: 10;
+}
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menuContent {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.5s;
+    width: 90%;
+    max-width: 900px;
+    height: 80%;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.overlay.show .menuContent {
+    transform: translateY(0); /* Поднимаем меню */
+}
+
+.closeButton {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.pizza-menu, .drinks-menu, .desserts-menu {
+    position: relative;
+    color: #000;
+    text-align: center;
+    font-size: 24px;
+    font-family: 'Pacifico', cursive;
+    max-height: 80%; 
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+    padding: 0 10px 10px;
+    scrollbar-width: none;
+}
+
+.menuContent h2 {
+    font-family: 'Pacifico', cursive;
+}
+
+.pizza-item, .drink-item, .dessert-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 40px;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.pizza-item img, .drink-item img, .dessert-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.pizza-info, .drink-info, .dessert-info {
+    text-align: left;
+}
+
+.pizza-info h3, .drink-info h3, .dessert-info h3 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.pizza-info p, .drink-info p, .dessert-info p {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.pizza-info strong, .drink-info strong, .dessert-info strong {
+    font-size: 20px;
+}
+
+.pizza-info button, .drink-info button, .dessert-info button {
+    background-color: #E88735;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pizza-info button:hover, .drink-info button:hover, .dessert-info button:hover {
+    background-color: #ca6d27;
+}
+
+
+
+/* Эффект плавного исчезновения и появления */
+.fade-out, .fade-in {
+    transition: opacity 2s ease-in-out; /* Плавный переход */
+    opacity: 1;
+}
+
+/* Страница исчезает */
+.fade-out {
+    opacity: 0;
+}
+
+/* Страница появляется */
+.fade-in {
+    opacity: 1;
+}
+
+.mascot {
+    position: fixed;
+    bottom: -400px; /* Маскот начнет снаружи экрана */
+    right: 20px;
+    width: 150px;
+    height:400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    transition: bottom 1s ease-in-out; /* Плавное появление */
+    z-index: 13;
+}
+
+.mascot img {
+    width: 250px;
+    margin-bottom: 10px;
+}
+
+
+.mascot.show {
+    bottom: 20px; /* После появления маскот сдвигается вверх на видимую область */
+}
+
+.fox {
+    z-index: 20;
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    margin-top: 10px; /* Расстояние между маскотом и текстом */
+    font-family: 'Pacifico', cursive;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid; /* Курсор печати */
+    width: fit-content;
+    position: absolute;
+    font-family: monospace;
+    top: 45%;
+    right: 200px;
+    backdrop-filter: blur(30px);
+    padding: 5px;
+
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: rgb(255, 255, 255); }
+}
+
+.fox {
+    animation: blink-caret 0.75s step-end infinite; /* Анимация мигания курсора */
+}
